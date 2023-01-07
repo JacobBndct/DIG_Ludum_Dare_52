@@ -42,12 +42,11 @@ public class PlayerController : MonoBehaviour
         Aim();
 
         _playerRigidbody.velocity = new Vector2(playerDirection.x * playerSpeed, playerDirection.y * playerSpeed);
-
-
-
-        float angle = Mathf.Atan2(playerAim.x, -playerAim.y) * Mathf.Rad2Deg;
-        playerGun.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        //playerGun.transform.Rotate(playerAim);
+        
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(playerAim);
+        
+        playerGun.transform.rotation = Quaternion.Euler(0, 0, (Mathf.Rad2Deg * Mathf.Atan2(mousePosition.y - playerGun.transform.position.y, mousePosition.x - playerGun.transform.position.x)) + 90f);
+        
     }
 
     public void Move()
