@@ -219,11 +219,11 @@ public partial class @Player_movement : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3cdb1c24-bdb2-49a9-9892-92a4c277db63"",
+                    ""id"": ""4068ec10-cf82-4e32-8985-4b218797d270"",
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
+                    ""groups"": """",
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
