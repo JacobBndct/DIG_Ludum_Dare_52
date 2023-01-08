@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    [SerializeField] public float CurrentScore/* { get; private set; }*/;
-    [SerializeField] public float HighScore/* { get; private set; }*/;
+    public float CurrentScore { get; private set; }
+    public float HighScore { get; private set; }
     public bool active = true;
 
     [SerializeField] private int numberOfIterations;
@@ -28,6 +28,7 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         CurrentScore = 0f;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
@@ -49,5 +50,10 @@ public class ScoreManager : MonoBehaviour
 
             yield return new WaitForSeconds(iterationLength);
         }
+    }
+
+    public void ResetScore()
+    {
+        CurrentScore = 0;
     }
 }

@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class CustomSceneManager : MonoBehaviour
 {
-    public static CustomSceneManager Instance { get; private set; }
-
     [SerializeField] private int initSceneIndex = 0;
     [SerializeField] private int titleSceneIndex = 1;
     [SerializeField] private int mainSceneIndex = 2;
@@ -15,6 +13,9 @@ public class CustomSceneManager : MonoBehaviour
 
     public bool IsGameplayScene => SceneManager.GetActiveScene().buildIndex == mainSceneIndex;
 
+    [SerializeField] InputHandler _input;
+
+    public static CustomSceneManager Instance { get; private set; }
     private void Awake()
     {
         if (Instance == null)
@@ -37,7 +38,7 @@ public class CustomSceneManager : MonoBehaviour
 
     private void Update()
     {
-        if (true) //check player button down to start game
+        if (!_input.FireInput.action.WasPressedThisFrame())
             return;
 
         if (SceneManager.GetActiveScene().buildIndex == titleSceneIndex)
