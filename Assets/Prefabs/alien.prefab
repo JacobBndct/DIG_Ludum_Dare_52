@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerReference: {fileID: 0}
   speed: 51.95
-  attackDmg: 0
+  attackDmg: 20
   canMove: 1
 --- !u!1 &4092111507478398242
 GameObject:

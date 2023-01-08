@@ -13,6 +13,7 @@ public class PlayerStats : MonoBehaviour {
     private void Update() {
         if (health < 0) {
             isAlive = false;
+            Destroy(this.gameObject);
         }
         else {
             isAlive = true;
