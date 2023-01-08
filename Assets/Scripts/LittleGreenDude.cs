@@ -18,7 +18,7 @@ public class LittleGreenDude : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         an = GetComponent<Animator>();
-        //playerReference = GameObject.FindGameObjectWithTag("Player");
+        playerReference = GameObject.FindGameObjectWithTag("Player");
         Debug.Log(playerReference);
     }
 
