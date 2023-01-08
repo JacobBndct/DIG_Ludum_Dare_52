@@ -11,11 +11,15 @@ public class Plant : MonoBehaviour
     struct StageData
     {
         public float stageDuration;
+        public int specialPointAmount;
         public Sprite sprite;
     }
 
     [SerializeField] private List<StageData> stages;
     public int CurrentStageIndex { get; private set; }
+    
+    // THIS IS THE AMOUNT OF THE POINTS THAT YOU GET FROM THE CURRENT STAGE :)
+    public int SpecialPointAmount => stages[CurrentStageIndex].specialPointAmount;
 
     private void Awake()
     {
