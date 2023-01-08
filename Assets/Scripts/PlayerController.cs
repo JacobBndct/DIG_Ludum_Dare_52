@@ -15,6 +15,13 @@ public class PlayerController : MonoBehaviour
 
     public GameObject playerGun;
 
+    public GameObject plant;
+
+    private GameObject overlapPlant;
+
+    public bool canPlant = true;
+    public bool canHarvest = false;
+
     Component gun;
 
     [SerializeField] private GameObject pelletShooter;
@@ -27,6 +34,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _playerRigidbody = GetComponent<Rigidbody2D>();
+
+        
     }
 
     void Update()
@@ -39,18 +48,17 @@ public class PlayerController : MonoBehaviour
         Shoot();
         Move();
         Aim();
+
+        Plant();
     }
 
     private void FixedUpdate()
     {
-        
-
         _playerRigidbody.velocity = new Vector2(playerDirection.x * playerSpeed, playerDirection.y * playerSpeed);
         
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(playerAim);
         
-        playerGun.transform.rotation = Quaternion.Euler(0, 0, (Mathf.Rad2Deg * Mathf.Atan2(mousePosition.y - playerGun.transform.position.y, mousePosition.x - playerGun.transform.position.x)));
-        
+        playerGun.transform.rotation = Quaternion.Euler(0, 0, (Mathf.Rad2Deg * Mathf.Atan2(mousePosition.y - playerGun.transform.position.y, mousePosition.x - playerGun.transform.position.x)));   
     }
 
     public void Move()
@@ -69,7 +77,41 @@ public class PlayerController : MonoBehaviour
         if (_input.FireInput.action.WasPressedThisFrame()) {
             Debug.Log("shooting");
             pelletShooter.GetComponent<Gun>().Shoot();
+        }   
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Plant")
+        {
+            canHarvest = true;
+            overlapPlant = collision.gameObject;
         }
-        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Plant")
+        {
+            canHarvest = false;
+        }
+    }
+
+    public void Plant()
+    {
+        if (_input.PlantInput.action.WasPressedThisFrame())
+        {
+            Debug.Log("PLANT");
+            // set out an event to say 'hey, we just planted' or something like that lol
+
+            if (canHarvest)
+            {
+                Destroy(overlapPlant);
+            } else
+            {
+                GameObject p = Instantiate(plant, transform.position, transform.rotation);
+            }
+
+        } 
     }
 }

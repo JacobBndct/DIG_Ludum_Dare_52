@@ -298,7 +298,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7498923103820127548}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -310,7 +310,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &7498923103820127536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +324,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerGun: {fileID: 7498923103156955613}
+  plant: {fileID: 701136597110308347, guid: 7fa995f430b028b4daa0b1291f074827, type: 3}
+  canPlant: 1
+  canHarvest: 0
   pelletShooter: {fileID: 1403985424784216485}
   playerSpeed: 5
   _input: {fileID: 0}

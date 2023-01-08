@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class InputHandler : MonoBehaviour
 {
     public Vector2 MoveInput { get; private set; } = Vector2.zero;
     public Vector2 LookInput { get; private set; } = Vector2.zero;
     public InputAction.CallbackContext FireInput { get; private set; }
-    
+
+    public InputAction.CallbackContext PlantInput { get; private set; }
+
     Player_movement _input;
 
     private void OnEnable()
@@ -24,6 +27,9 @@ public class InputHandler : MonoBehaviour
 
         _input.Player.Fire.started += context => FireInput = context;
         _input.Player.Fire.canceled += context => FireInput = context;
+
+        _input.Player.Plant.started += context => PlantInput = context;
+        _input.Player.Plant.canceled += context => PlantInput = context;
     }
 
     private void OnDisable()
@@ -36,7 +42,10 @@ public class InputHandler : MonoBehaviour
 
         _input.Player.Fire.started += context => FireInput = context;
         _input.Player.Fire.canceled += context => FireInput = context;
-        
+
+        _input.Player.Plant.started += context => PlantInput = context;
+        _input.Player.Plant.canceled += context => PlantInput = context;
+
         _input.Player.Disable();
     }
 
@@ -52,5 +61,10 @@ public class InputHandler : MonoBehaviour
 
     private void SetFire(InputAction.CallbackContext context) {
         
+    }
+
+    private void SetPlant(InputAction.CallbackContext context)
+    {
+       
     }
 }
