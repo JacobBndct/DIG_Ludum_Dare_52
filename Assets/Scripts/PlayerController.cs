@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 playerDirection;
     private Vector2 playerAim;
+    private Vector2 playerMouseAim;
+
 
     public GameObject playerGun;
 
@@ -47,7 +49,14 @@ public class PlayerController : MonoBehaviour
         //playerDirection = new Vector2(directionX, directionY).normalized;
         Shoot();
         Move();
-        Aim();
+
+        if (Gamepad.current == null)
+        {
+            MouseAim();
+        } else
+        {
+            Aim();
+        }
 
         Plant();
     }
@@ -56,12 +65,19 @@ public class PlayerController : MonoBehaviour
     {
         _playerRigidbody.velocity = new Vector2(playerDirection.x * playerSpeed, playerDirection.y * playerSpeed);
         
-        
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(playerAim);
-        playerGun.transform.rotation = Quaternion.Euler(0, 0, (Mathf.Rad2Deg * Mathf.Atan2(mousePosition.y - playerGun.transform.position.y, mousePosition.x - playerGun.transform.position.x)));
+       
         
         // COMMENTED OUT GAMEPAD CONTROLS
         // playerGun.transform.rotation = Quaternion.Euler(0, 0, (Mathf.Rad2Deg * Mathf.Atan2(playerAim.y, playerAim.x)));
+
+        if (Gamepad.current == null)
+        {
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(playerMouseAim);
+            playerGun.transform.rotation = Quaternion.Euler(0, 0, (Mathf.Rad2Deg * Mathf.Atan2(mousePosition.y - playerGun.transform.position.y, mousePosition.x - playerGun.transform.position.x)));
+        } else
+        {
+            playerGun.transform.rotation = Quaternion.Euler(0, 0, (Mathf.Rad2Deg * Mathf.Atan2(playerAim.y, playerAim.x)));
+        }
 
 
         Debug.Log(playerAim);
@@ -77,6 +93,11 @@ public class PlayerController : MonoBehaviour
     {
         playerAim = _input.LookInput;
         
+    }
+
+    public void MouseAim()
+    {
+        playerMouseAim = _input.MouseLookInput;
     }
     
     public void Shoot()

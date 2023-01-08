@@ -8,6 +8,9 @@ public class InputHandler : MonoBehaviour
 {
     public Vector2 MoveInput { get; private set; } = Vector2.zero;
     public Vector2 LookInput { get; private set; } = Vector2.zero;
+
+    public Vector2 MouseLookInput { get; private set; } = Vector2.zero;
+
     public InputAction.CallbackContext FireInput { get; private set; }
 
     public InputAction.CallbackContext PlantInput { get; private set; }
@@ -25,6 +28,9 @@ public class InputHandler : MonoBehaviour
         _input.Player.Look.performed += SetLook;
         _input.Player.Look.canceled += SetLook;
 
+        _input.Player.MouseLook.performed += SetMouseLook;
+        _input.Player.MouseLook.canceled += SetMouseLook;
+
         _input.Player.Fire.started += context => FireInput = context;
         _input.Player.Fire.canceled += context => FireInput = context;
 
@@ -40,6 +46,9 @@ public class InputHandler : MonoBehaviour
         _input.Player.Look.performed += SetLook;
         _input.Player.Look.canceled += SetLook;
 
+        _input.Player.MouseLook.performed += SetMouseLook;
+        _input.Player.MouseLook.canceled += SetMouseLook;
+
         _input.Player.Fire.started += context => FireInput = context;
         _input.Player.Fire.canceled += context => FireInput = context;
 
@@ -52,6 +61,11 @@ public class InputHandler : MonoBehaviour
     private void SetLook(InputAction.CallbackContext context)
     {
         LookInput = context.ReadValue<Vector2>();
+    }
+
+    private void SetMouseLook(InputAction.CallbackContext context)
+    {
+        MouseLookInput = context.ReadValue<Vector2>();
     }
 
     private void SetMove(InputAction.CallbackContext context)
