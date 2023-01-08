@@ -62,7 +62,7 @@ public class LittleGreenDude : MonoBehaviour
     {
         if (collision.tag == "Pellet")
         {
-            Destroy(collision);
+            Destroy(collision.gameObject);
             Death();
         }
     }
