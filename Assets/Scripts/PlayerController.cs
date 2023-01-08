@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,11 +18,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject pelletShooter;
     
-    
     [Header("Movement")]
     [SerializeField] private float playerSpeed = 5.0f;
     [SerializeField] InputHandler _input;
-
     void Start()
     {
         _playerRigidbody = GetComponent<Rigidbody2D>();
