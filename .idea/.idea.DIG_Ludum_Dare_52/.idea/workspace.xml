@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6ba2e637-04b7-4abd-a5bd-a59eb3156ceb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DIG_Ludum_Dare_52/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DIG_Ludum_Dare_52/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player/object_player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/object_player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/alien.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/alien.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/AlienTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AlienTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LittleGreenDude.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LittleGreenDude.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1673187652521</updated>
       <workItem from="1673187667756" duration="7668000" />
-      <workItem from="1673202894916" duration="6061000" />
+      <workItem from="1673202894916" duration="7338000" />
     </task>
     <servers />
   </component>

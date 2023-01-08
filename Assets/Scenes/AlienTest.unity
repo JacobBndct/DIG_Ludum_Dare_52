@@ -191,6 +191,10 @@ PrefabInstance:
       propertyPath: _input
       value: 
       objectReference: {fileID: 1947859661}
+    - target: {fileID: 395296985590590370, guid: ae62b338fd1f10a429ce95ba85168a99, type: 3}
+      propertyPath: fireCoolDown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 395296985590590381, guid: ae62b338fd1f10a429ce95ba85168a99, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -933,6 +937,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerGun: {fileID: 927858576}
   pelletShooter: {fileID: 0}
+  fireCoolDown: 0
+  canShoot: 0
   playerSpeed: 5
   _input: {fileID: 1947859661}
 --- !u!61 &1271198474

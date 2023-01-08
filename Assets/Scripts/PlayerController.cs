@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -17,22 +18,20 @@ public class PlayerController : MonoBehaviour
     Component gun;
 
     [SerializeField] private GameObject pelletShooter;
+    [SerializeField] private float fireCoolDown;
+    [SerializeField] private bool canShoot;
     
     [Header("Movement")]
     [SerializeField] private float playerSpeed = 5.0f;
     [SerializeField] InputHandler _input;
     void Start()
     {
+        canShoot = true;
         _playerRigidbody = GetComponent<Rigidbody2D>();
+        
     }
 
-    void Update()
-    {
-        // Get Inputs
-        //float directionX = Input.GetAxisRaw("Horizontal");
-        //float directionY = Input.GetAxisRaw("Vertical");
-
-        //playerDirection = new Vector2(directionX, directionY).normalized;
+    void Update() {
         Shoot();
         Move();
         Aim();
@@ -60,13 +59,20 @@ public class PlayerController : MonoBehaviour
         playerAim = _input.LookInput;
         
     }
+
+    IEnumerator CoolDown(float coolDown) {
+        canShoot = false;
+        yield return new WaitForSeconds(coolDown);
+        canShoot = true;
+    }
     
-    public void Shoot()
-    {
-        if (_input.FireInput.action.WasPressedThisFrame()) {
+    private void Shoot() {
+        if (_input.FireInput.action.WasPressedThisFrame() && canShoot) {
             Debug.Log("shooting");
             pelletShooter.GetComponent<Gun>().Shoot();
+            StartCoroutine(CoolDown(fireCoolDown));
         }
+        
         
     }
 }
