@@ -16,7 +16,10 @@ public class PlayerController : MonoBehaviour
 
     public GameObject playerGun;
 
+    Component gun;
+
     [SerializeField] private GameObject pelletShooter;
+    
     
     [Header("Movement")]
     [SerializeField] private float playerSpeed = 5.0f;

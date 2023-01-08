@@ -46,8 +46,7 @@ public class LittleGreenDude : MonoBehaviour
         {
             an.speed = 0;
         }
-        Death();
-        //StartCoroutine(countDown());
+        StartCoroutine(countDown());
     }
 
     void Update()
@@ -57,6 +56,12 @@ public class LittleGreenDude : MonoBehaviour
             var step = speed * Time.deltaTime; // calculate distance to move
             transform.position = Vector2.MoveTowards(transform.position, playerReference.transform.position, step);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(collision);
+        Death();
     }
 
     // Called upon DEATH
