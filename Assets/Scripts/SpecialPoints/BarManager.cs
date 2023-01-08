@@ -53,7 +53,7 @@ public class BarManager : MonoBehaviour
             slider.value += currentIterationDelta;
             BarShake(currentIterationDelta, i);
             yield return new WaitForSeconds(iterationLength);
-            /*rect.anchoredPosition = originalPosition;*/
+            rect.anchoredPosition = originalPosition;
         }
     }
 
