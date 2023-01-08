@@ -46,8 +46,8 @@ public class LittleGreenDude : MonoBehaviour
         {
             an.speed = 0;
         }
-
-        StartCoroutine(countDown());
+        Death();
+        //StartCoroutine(countDown());
     }
 
     void Update()
@@ -59,5 +59,11 @@ public class LittleGreenDude : MonoBehaviour
         }
     }
 
-
+    // Called upon DEATH
+    void Death()
+    {
+        // we can do some more fancy shit here later
+        Destroy(gameObject);
+        Debug.Log("DEATH");
+    }
 }
