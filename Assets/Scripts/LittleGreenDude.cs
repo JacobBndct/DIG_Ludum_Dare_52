@@ -60,8 +60,11 @@ public class LittleGreenDude : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(collision);
-        Death();
+        if (collision.tag == "Pellet")
+        {
+            Destroy(collision.gameObject);
+            Death();
+        }
     }
 
     // Called upon DEATH
