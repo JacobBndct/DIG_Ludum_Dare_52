@@ -72,11 +72,21 @@ public class LittleGreenDude : MonoBehaviour
         }
     }
 
-    private IEnumerator OnCollisionStay2D(Collision2D other)
+    /*
+    private IEnumerator OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             yield return new WaitForSeconds(2f);
+            Debug.Log("player in range");
+            other.gameObject.GetComponent<PlayerStats>().Damage(attackDmg);
+        }
+    }
+    */
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
             Debug.Log("player in range");
             other.gameObject.GetComponent<PlayerStats>().Damage(attackDmg);
         }
