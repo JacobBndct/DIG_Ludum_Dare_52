@@ -9,6 +9,8 @@ public class LittleGreenDude : MonoBehaviour
     public GameObject playerReference;
     [SerializeField] private float speed;
 
+    public GameObject explosion;
+
     public bool canMove;
 
     public int pointWorth;
@@ -28,7 +30,6 @@ public class LittleGreenDude : MonoBehaviour
 
     private void Start()
     {
-        
         StartCoroutine(countDown());
     }
 
@@ -97,6 +98,9 @@ public class LittleGreenDude : MonoBehaviour
     {
         // we can do some more fancy shit here later
         ScoreManager.Instance.AddScore(pointWorth);
+
+        Instantiate(explosion, transform.position, transform.rotation);
+
         Destroy(gameObject);
         Debug.Log("DEATH");
     }
