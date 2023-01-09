@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf15c9f3b84472ea1d4570ee5e5b3e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle: {fileID: 5772310615224820477, guid: 6af849c219e0b944fa1ac874a2eee8c8, type: 3}
   spriteRenderer: {fileID: 701136597110308346}
   stages:
   - stageDuration: 4

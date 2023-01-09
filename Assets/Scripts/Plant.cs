@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Plant : MonoBehaviour
 {
+    public GameObject particle;
+
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     [Serializable]
@@ -13,6 +15,8 @@ public class Plant : MonoBehaviour
         public float stageDuration;
         public float specialPointAmount;
         public Sprite sprite;
+
+        
     }
 
     [SerializeField] private List<StageData> stages;
@@ -31,7 +35,9 @@ public class Plant : MonoBehaviour
     {
         var stage = stages[stageIndex];
         spriteRenderer.sprite = stage.sprite;
-        
+
+        Instantiate(particle, transform.position, transform.rotation);
+
         CurrentStageIndex = stageIndex;
         StartCoroutine(WaitStageDurationThenAdvance());
     }
