@@ -109,7 +109,7 @@ MonoBehaviour:
   - stageDuration: 7
     specialPointAmount: 0.15
     sprite: {fileID: 21300000, guid: 5e95fbc6b5f5f0847a9f5f29e0258708, type: 3}
-  - stageDuration: 10
+  - stageDuration: 1e+18
     specialPointAmount: 0.3
     sprite: {fileID: 21300000, guid: a6824f689b663304cad77c4a08dd578c, type: 3}
 --- !u!61 &203874909707464425
@@ -136,5 +136,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.1}
+  m_Size: {x: 0.14, y: 0.14}
   m_EdgeRadius: 0

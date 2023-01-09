@@ -9,9 +9,13 @@ public class LittleGreenDude : MonoBehaviour
     public GameObject playerReference;
     [SerializeField] private float speed;
 
+    public GameObject explosion;
+
     public bool canMove;
 
     public int pointWorth;
+
+    public int attackDmg;
 
     Animator an;
     
@@ -26,7 +30,6 @@ public class LittleGreenDude : MonoBehaviour
 
     private void Start()
     {
-        
         StartCoroutine(countDown());
     }
 
@@ -70,11 +73,34 @@ public class LittleGreenDude : MonoBehaviour
         }
     }
 
+    /*
+    private IEnumerator OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            yield return new WaitForSeconds(2f);
+            Debug.Log("player in range");
+            other.gameObject.GetComponent<PlayerStats>().Damage(attackDmg);
+        }
+    }
+    */
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("player in range");
+            other.gameObject.GetComponent<PlayerStats>().Damage(attackDmg);
+        }
+    }
+
     // Called upon DEATH
     public void Death()
     {
         // we can do some more fancy shit here later
         ScoreManager.Instance.AddScore(pointWorth);
+
+        Instantiate(explosion, transform.position, transform.rotation);
+
         Destroy(gameObject);
         Debug.Log("DEATH");
     }
