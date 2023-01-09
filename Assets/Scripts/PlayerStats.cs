@@ -35,6 +35,11 @@ public class PlayerStats : MonoBehaviour
         {
             Debug.Log("Death");
             isAlive = false;
+            //Singletons are yucky
+
+            SpecialPointsManager.Instance.SetSpecialPoints(0.5f);
+            CustomSceneManager.Instance.LoadEndScene();
+
             Destroy(this.gameObject);
         }
     }
