@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +15,11 @@ public class PlayerController : MonoBehaviour
     private Vector2 playerAim;
     private Vector2 playerMouseAim;
 
+    [Header("HEALT")]
+    public int playerHealth;
+    public bool isInvulnerable = false;
+    public bool canShoot = false;
+    public float fireCoolDown;
 
     public GameObject playerGun;
 
@@ -38,6 +44,13 @@ public class PlayerController : MonoBehaviour
         _playerRigidbody = GetComponent<Rigidbody2D>();
 
         
+    }
+
+    IEnumerator CoolDown(float coolDown)
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(coolDown);
+        canShoot = true;
     }
 
     void Update()
@@ -103,8 +116,9 @@ public class PlayerController : MonoBehaviour
     
     public void Shoot()
     {
-        if (_input.FireInput.action.WasPressedThisFrame()) {
+        if (_input.FireInput.action.WasPressedThisFrame() && canShoot) {
             Debug.Log("shooting");
+            StartCoroutine(CoolDown(fireCoolDown));
             pelletShooter.GetComponent<Gun>().Shoot();
         }   
     }

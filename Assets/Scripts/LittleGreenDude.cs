@@ -13,6 +13,8 @@ public class LittleGreenDude : MonoBehaviour
 
     public int pointWorth;
 
+    public int attackDmg;
+
     Animator an;
     
 
@@ -67,6 +69,16 @@ public class LittleGreenDude : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Death();
+        }
+    }
+
+    private IEnumerator OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            yield return new WaitForSeconds(2f);
+            Debug.Log("player in range");
+            other.gameObject.GetComponent<PlayerStats>().Damage(attackDmg);
         }
     }
 

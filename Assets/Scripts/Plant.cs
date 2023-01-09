@@ -46,7 +46,7 @@ public class Plant : MonoBehaviour
             SetStage(CurrentStageIndex);
         } else
         {
-            StopCoroutine(WaitStageDurationThenAdvance());
+            //StopCoroutine(WaitStageDurationThenAdvance());
         }
             
     }
