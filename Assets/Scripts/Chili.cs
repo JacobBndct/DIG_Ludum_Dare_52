@@ -5,6 +5,7 @@ using UnityEngine;
 public class Chili : MonoBehaviour
 {
     public int scoreValue = 5000;
+    public float specialValue = 0.10f;
     public AudioClip pickupSound;
 
     // Start is called before the first frame update
@@ -24,10 +25,13 @@ public class Chili : MonoBehaviour
         if (collision.tag == "Player")
         {
             ScoreManager.Instance.AddScore(scoreValue);
+            SpecialPointsManager.Instance.AddSpecialPoints(specialValue);
 
             // same deal as in LittleGreenDude
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             AudioSource playerAudio = player.GetComponent<AudioSource>();
+
+
 
             playerAudio.PlayOneShot(pickupSound);
             Destroy(gameObject);
