@@ -295,7 +295,7 @@ public partial class @Player_movement : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fc4c545d-1994-4482-98d8-031aa33f8708"",
-                    ""path"": ""<Mouse>/middleButton"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
