@@ -15,6 +15,8 @@ public class InputHandler : MonoBehaviour
 
     public InputAction.CallbackContext PlantInput { get; private set; }
 
+    public InputAction.CallbackContext SpecialInput { get; private set; }
+
     Player_movement _input;
 
     private void OnEnable()
@@ -36,6 +38,9 @@ public class InputHandler : MonoBehaviour
 
         _input.Player.Plant.started += context => PlantInput = context;
         _input.Player.Plant.canceled += context => PlantInput = context;
+
+        _input.Player.Special.started += context => SpecialInput = context;
+        _input.Player.Special.canceled += context => SpecialInput = context;
     }
 
     private void OnDisable()
@@ -54,6 +59,9 @@ public class InputHandler : MonoBehaviour
 
         _input.Player.Plant.started += context => PlantInput = context;
         _input.Player.Plant.canceled += context => PlantInput = context;
+
+        _input.Player.Special.started += context => SpecialInput = context;
+        _input.Player.Special.canceled += context => SpecialInput = context;
 
         _input.Player.Disable();
     }
@@ -80,5 +88,10 @@ public class InputHandler : MonoBehaviour
     private void SetPlant(InputAction.CallbackContext context)
     {
        
+    }
+
+    private void SetSpecial(InputAction.CallbackContext context)
+    {
+
     }
 }
