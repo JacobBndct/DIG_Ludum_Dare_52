@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using TMPro;
+using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public GameObject playerGun;
 
     public GameObject plant;
+    public float plantCost = 0.10f;
 
     private GameObject overlapPlant;
 
@@ -55,8 +57,11 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator CoolDown(float coolDown)
     {
+        SpriteRenderer gunSprite = GetComponent<Gun>().GetComponent<SpriteRenderer>();
         canShoot = false;
+        gunSprite.color = new Color(1f, 0f, 0f, 0.5f);
         yield return new WaitForSeconds(coolDown);
+        gunSprite.color = new Color(1f, 1f, 1f, 1f);
         canShoot = true;
     }
 
@@ -191,12 +196,9 @@ public class PlayerController : MonoBehaviour
             Debug.Log("PLANT");
             // set out an event to say 'hey, we just planted' or something like that lol
 
-            if (canHarvest)
+            if (canHarvest) 
             {
-                
                 Plant tempPlant = overlapPlant.GetComponent<Plant>();
-                
-
                 SpecialPointsManager.Instance.AddSpecialPoints(tempPlant.SpecialPointAmount);
 
                 if (SpecialPointsManager.Instance.GetSpecialPoints() > 0.90f)
@@ -208,8 +210,9 @@ public class PlayerController : MonoBehaviour
                 }
 
                 Destroy(overlapPlant);
-            } else
+            } else if (SpecialPointsManager.Instance.GetSpecialPoints() >= plantCost)
             {
+                SpecialPointsManager.Instance.AddSpecialPoints(-plantCost);
                 GameObject p = Instantiate(plant, transform.position, transform.rotation);
             }
 
