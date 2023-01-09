@@ -56,7 +56,7 @@ public class LittleGreenDude : MonoBehaviour
 
     void Update()
     {
-        if (canMove)
+        if (canMove && playerReference != null)
         {
             var step = speed * Time.deltaTime; // calculate distance to move
             transform.position = Vector2.MoveTowards(transform.position, playerReference.transform.position, step);
