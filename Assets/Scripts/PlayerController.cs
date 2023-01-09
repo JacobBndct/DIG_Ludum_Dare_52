@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     public bool canPlant = true;
     public bool canHarvest = false;
 
+    Animator an;
     AudioSource audioSource;
 
     public AudioClip harvestClip;
@@ -47,7 +48,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        audioSource= GetComponent<AudioSource>();
+        an = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         _playerRigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -84,6 +86,14 @@ public class PlayerController : MonoBehaviour
     {
         _playerRigidbody.velocity = new Vector2(playerDirection.x * playerSpeed, playerDirection.y * playerSpeed);
         
+        if (_playerRigidbody.velocity != new Vector2(0, 0))
+        {
+            an.speed = 1;
+        } else
+        {
+            an.speed = 0;
+        }
+
         // COMMENTED OUT GAMEPAD CONTROLS
         // playerGun.transform.rotation = Quaternion.Euler(0, 0, (Mathf.Rad2Deg * Mathf.Atan2(playerAim.y, playerAim.x)));
 
