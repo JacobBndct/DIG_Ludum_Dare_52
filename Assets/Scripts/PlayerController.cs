@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator CoolDown(float coolDown)
     {
-        SpriteRenderer gunSprite = GetComponent<Gun>().GetComponent<SpriteRenderer>();
+        SpriteRenderer gunSprite = transform.Find("offset").Find("object_gun").GetComponent<SpriteRenderer>();
         canShoot = false;
         gunSprite.color = new Color(1f, 0f, 0f, 0.5f);
         yield return new WaitForSeconds(coolDown);
