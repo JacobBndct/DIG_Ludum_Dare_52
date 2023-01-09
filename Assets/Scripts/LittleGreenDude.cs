@@ -18,7 +18,9 @@ public class LittleGreenDude : MonoBehaviour
     public int attackDmg;
 
     Animator an;
-    
+
+    AudioSource audioSource;
+    public AudioClip hitClip;
 
     void Awake()
     {
@@ -30,6 +32,7 @@ public class LittleGreenDude : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         StartCoroutine(countDown());
     }
 
@@ -98,6 +101,16 @@ public class LittleGreenDude : MonoBehaviour
     {
         // we can do some more fancy shit here later
         ScoreManager.Instance.AddScore(pointWorth);
+
+        // destroying alien kills their own audio source. this is terrible but it [kinda] works.
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        AudioSource playerAudio = player.GetComponent<AudioSource>();
+
+        playerAudio.PlayOneShot(hitClip);
+
+
+
+
 
         Instantiate(explosion, transform.position, transform.rotation);
 

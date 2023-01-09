@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -30,6 +31,11 @@ public class PlayerController : MonoBehaviour
     public bool canPlant = true;
     public bool canHarvest = false;
 
+    AudioSource audioSource;
+
+    public AudioClip harvestClip;
+    public AudioClip fullHarvestClip;
+
     Component gun;
 
     [SerializeField] private GameObject pelletShooter;
@@ -41,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        audioSource= GetComponent<AudioSource>();
         _playerRigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -142,6 +149,8 @@ public class PlayerController : MonoBehaviour
         SpecialPointsManager.Instance.SetSpecialPoints(0f);
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
+        audioSource.Play();
+
         for (int i = 0; i < enemies.Length; i++) 
         { 
             LittleGreenDude greenie = enemies[i].GetComponent<LittleGreenDude>();
@@ -176,8 +185,18 @@ public class PlayerController : MonoBehaviour
             {
                 
                 Plant tempPlant = overlapPlant.GetComponent<Plant>();
+                
 
                 SpecialPointsManager.Instance.AddSpecialPoints(tempPlant.SpecialPointAmount);
+
+                if (SpecialPointsManager.Instance.GetSpecialPoints() > 0.90f)
+                {
+                    audioSource.PlayOneShot(fullHarvestClip);
+                } else
+                {
+                    audioSource.PlayOneShot(harvestClip);
+                }
+
                 Destroy(overlapPlant);
             } else
             {

@@ -13,15 +13,20 @@ public class PlayerStats : MonoBehaviour
 
     SpriteRenderer sprite;
 
+    AudioSource audioSource;
+    public AudioClip hitSound;
+
     private void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Damage(float dmg)
     {
         if (!invulnerable)
         {
+            audioSource.PlayOneShot(hitSound);
             sprite.color = new Color(1, 1, 1, 0.5f);
             Debug.Log("Damage " + health);
             health -= dmg;
