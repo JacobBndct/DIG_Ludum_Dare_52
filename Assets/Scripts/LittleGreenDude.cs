@@ -17,6 +17,10 @@ public class LittleGreenDude : MonoBehaviour
 
     public int attackDmg;
 
+    public int spawnChance = 8;
+
+    public GameObject chili;
+
     Animator an;
 
     AudioSource audioSource;
@@ -109,6 +113,15 @@ public class LittleGreenDude : MonoBehaviour
         playerAudio.PlayOneShot(hitClip);
 
 
+        //determine whether to spawn chili
+        int randomValue = UnityEngine.Random.Range(1, spawnChance);
+
+        Debug.Log("Random Value: " + randomValue);
+
+        if (randomValue == spawnChance - 1) ;
+        {
+            Instantiate(chili, transform.position, transform.rotation);
+        }
 
 
 

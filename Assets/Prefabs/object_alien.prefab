@@ -4967,6 +4967,7 @@ MonoBehaviour:
   canMove: 1
   pointWorth: 100
   attackDmg: 1
+  chili: {fileID: 7641721715086413451, guid: d1dfa0b212dafe849a429f38d957aa7e, type: 3}
   hitClip: {fileID: 8300000, guid: 10ff1d6c55868b24a85a51d035a84676, type: 3}
 --- !u!95 &7641637580017628723
 Animator:
