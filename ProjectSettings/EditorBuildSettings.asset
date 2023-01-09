@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScreen.unity
     guid: 901e352a00211e444a43fbf6c538d059
   - enabled: 1
-    path: Assets/Scenes/OHIO.unity
+    path: Assets/Scenes/OHIODev.unity
     guid: d89a86b16847e9448aa95b4bfcaff577
   - enabled: 1
     path: Assets/Scenes/FinalScene.unity

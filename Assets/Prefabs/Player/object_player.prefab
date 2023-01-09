@@ -327,7 +327,7 @@ MonoBehaviour:
   playerHealth: 3
   isInvulnerable: 0
   canShoot: 1
-  fireCoolDown: 0.1
+  fireCoolDown: 1
   playerGun: {fileID: 7498923103156955613}
   plant: {fileID: 701136597110308347, guid: 7fa995f430b028b4daa0b1291f074827, type: 3}
   canPlant: 1

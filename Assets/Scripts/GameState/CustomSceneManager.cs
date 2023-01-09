@@ -47,7 +47,7 @@ public class CustomSceneManager : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().buildIndex == endSceneIndex)
         {
-            //restart the level
+            ScoreManager.Instance.ResetScore();
             SceneManager.LoadScene(mainSceneIndex);
         }
     }
