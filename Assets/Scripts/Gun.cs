@@ -8,8 +8,16 @@ public class Gun : MonoBehaviour {
     [SerializeField] private float radius;
     [SerializeField] private GameObject pellet;
 
+    AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource= GetComponent<AudioSource>();
+    }
+
     public void Shoot() {
         pellets.Clear();
+        audioSource.Play();
         for (int i = 0; i < noOfPellets; i++) {
             GameObject p = Instantiate(pellet, transform.position, transform.rotation);
             p.transform.localScale = transform.localScale;
