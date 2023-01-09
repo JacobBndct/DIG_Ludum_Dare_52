@@ -11,6 +11,9 @@ public class PlayerStats : MonoBehaviour
 
     public float invulTime = 1f;
 
+    public float tint = 1f;
+    public float tintModifier = 0.40f;
+
     SpriteRenderer sprite;
 
     AudioSource audioSource;
@@ -26,6 +29,8 @@ public class PlayerStats : MonoBehaviour
     {
         if (!invulnerable)
         {
+            tint -= tintModifier;
+
             audioSource.PlayOneShot(hitSound);
             sprite.color = new Color(1, 1, 1, 0.5f);
             Debug.Log("Damage " + health);
@@ -54,7 +59,7 @@ public class PlayerStats : MonoBehaviour
         Debug.Log("Start invul");
         yield return new WaitForSeconds(invulTime);
         invulnerable = false;
-        sprite.color = new Color(1, 1, 1, 1f);
+        sprite.color = new Color(1, tint, tint, 1f);
         Debug.Log("End invul");
     }
 }
