@@ -42,8 +42,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _playerRigidbody = GetComponent<Rigidbody2D>();
-
-        
     }
 
     IEnumerator CoolDown(float coolDown)
@@ -78,8 +76,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         _playerRigidbody.velocity = new Vector2(playerDirection.x * playerSpeed, playerDirection.y * playerSpeed);
-        
-       
         
         // COMMENTED OUT GAMEPAD CONTROLS
         // playerGun.transform.rotation = Quaternion.Euler(0, 0, (Mathf.Rad2Deg * Mathf.Atan2(playerAim.y, playerAim.x)));
