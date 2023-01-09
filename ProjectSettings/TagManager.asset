@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Plant
   - Pellet
-  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -28,9 +28,4 @@ public class SpecialPointsManager : MonoBehaviour
     {
         specialPoints = points;
     }
-
-    public void AddSpecialPoints(float points)
-    {
-        specialPoints += points;
-    }
 }

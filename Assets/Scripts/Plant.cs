@@ -11,7 +11,7 @@ public class Plant : MonoBehaviour
     struct StageData
     {
         public float stageDuration;
-        public float specialPointAmount;
+        public int specialPointAmount;
         public Sprite sprite;
     }
 
@@ -19,7 +19,7 @@ public class Plant : MonoBehaviour
     public int CurrentStageIndex { get; private set; }
     
     // THIS IS THE AMOUNT OF THE POINTS THAT YOU GET FROM THE CURRENT STAGE :)
-    public float SpecialPointAmount => stages[CurrentStageIndex].specialPointAmount;
+    public int SpecialPointAmount => stages[CurrentStageIndex].specialPointAmount;
 
     private void Awake()
     {
@@ -42,12 +42,6 @@ public class Plant : MonoBehaviour
         CurrentStageIndex++;
         
         if (CurrentStageIndex < stages.Count)
-        {
             SetStage(CurrentStageIndex);
-        } else
-        {
-            StopCoroutine(WaitStageDurationThenAdvance());
-        }
-            
     }
 }

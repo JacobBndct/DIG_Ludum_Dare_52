@@ -59,7 +59,6 @@ public class PlayerController : MonoBehaviour
         }
 
         Plant();
-        Special();
     }
 
     private void FixedUpdate()
@@ -111,7 +110,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Plant" && !canHarvest)
+        if (collision.tag == "Plant")
         {
             canHarvest = true;
             overlapPlant = collision.gameObject;
@@ -126,35 +125,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // by the POWER OF OHIO
-    public void OhioDeathBlast()
-    {
-        SpecialPointsManager.Instance.SetSpecialPoints(0f);
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-        for (int i = 0; i < enemies.Length; i++) 
-        { 
-            LittleGreenDude greenie = enemies[i].GetComponent<LittleGreenDude>();
-            greenie.Death();
-        }
-
-    }
-
-    public void Special()
-    {
-        if (_input.SpecialInput.action.WasPerformedThisFrame())
-        {
-            if (SpecialPointsManager.Instance.GetSpecialPoints() > 0.90f)
-            {
-                OhioDeathBlast();
-            } else
-            {
-                // maybe play a "nuh-uh not happenin" sound
-                Debug.Log("You need more points!");
-            }
-        }
-    }
-
     public void Plant()
     {
         if (_input.PlantInput.action.WasPressedThisFrame())
@@ -164,10 +134,6 @@ public class PlayerController : MonoBehaviour
 
             if (canHarvest)
             {
-                
-                Plant tempPlant = overlapPlant.GetComponent<Plant>();
-
-                SpecialPointsManager.Instance.AddSpecialPoints(tempPlant.SpecialPointAmount);
                 Destroy(overlapPlant);
             } else
             {

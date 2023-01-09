@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7641637580017628723}
   m_Layer: 0
   m_Name: object_alien
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,6 @@ MonoBehaviour:
   playerReference: {fileID: 0}
   speed: 2
   canMove: 1
-  pointWorth: 100
 --- !u!95 &7641637580017628723
 Animator:
   serializedVersion: 5
