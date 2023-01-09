@@ -151,6 +151,7 @@ MonoBehaviour:
   speed: 2
   canMove: 1
   pointWorth: 100
+  attackDmg: 1
 --- !u!95 &7641637580017628723
 Animator:
   serializedVersion: 5

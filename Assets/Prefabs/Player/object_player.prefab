@@ -215,6 +215,7 @@ GameObject:
   - component: {fileID: 7498923103820127549}
   - component: {fileID: 7498923103820127536}
   - component: {fileID: 7498923103820127538}
+  - component: {fileID: 1128727447143299361}
   m_Layer: 6
   m_Name: object_player
   m_TagString: Player
@@ -323,6 +324,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b7a78197a2a15d49ae1c2de4cfa7846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHealth: 3
+  isInvulnerable: 0
+  canShoot: 1
+  fireCoolDown: 0.1
   playerGun: {fileID: 7498923103156955613}
   plant: {fileID: 701136597110308347, guid: 7fa995f430b028b4daa0b1291f074827, type: 3}
   canPlant: 1
@@ -356,6 +361,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.31, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1128727447143299361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7498923103820127548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acfacfab3c77d9c4aa1ddfb0723bd1a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
 --- !u!1001 &7498923102559565402
 PrefabInstance:
   m_ObjectHideFlags: 0
