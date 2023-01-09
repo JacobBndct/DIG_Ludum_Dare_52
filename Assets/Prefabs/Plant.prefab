@@ -104,13 +104,13 @@ MonoBehaviour:
     specialPointAmount: 0
     sprite: {fileID: 21300000, guid: 1cd276d6eef96ac468a358906d867f2b, type: 3}
   - stageDuration: 3
-    specialPointAmount: 0
+    specialPointAmount: 0.05
     sprite: {fileID: 21300000, guid: 2e3c4984e6533534c83336edb04c07b3, type: 3}
   - stageDuration: 7
-    specialPointAmount: 0
+    specialPointAmount: 0.15
     sprite: {fileID: 21300000, guid: 5e95fbc6b5f5f0847a9f5f29e0258708, type: 3}
   - stageDuration: 10
-    specialPointAmount: 0
+    specialPointAmount: 0.3
     sprite: {fileID: 21300000, guid: a6824f689b663304cad77c4a08dd578c, type: 3}
 --- !u!61 &203874909707464425
 BoxCollider2D:

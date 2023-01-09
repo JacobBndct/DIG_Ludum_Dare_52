@@ -11,6 +11,8 @@ public class LittleGreenDude : MonoBehaviour
 
     public bool canMove;
 
+    public int pointWorth;
+
     Animator an;
     
 
@@ -24,6 +26,7 @@ public class LittleGreenDude : MonoBehaviour
 
     private void Start()
     {
+        
         StartCoroutine(countDown());
     }
 
@@ -68,9 +71,10 @@ public class LittleGreenDude : MonoBehaviour
     }
 
     // Called upon DEATH
-    void Death()
+    public void Death()
     {
         // we can do some more fancy shit here later
+        ScoreManager.Instance.AddScore(pointWorth);
         Destroy(gameObject);
         Debug.Log("DEATH");
     }

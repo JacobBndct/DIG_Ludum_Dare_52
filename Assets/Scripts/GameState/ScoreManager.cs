@@ -39,7 +39,12 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public IEnumerator AddScore(float score)
+    public void AddScore(float score)
+    {
+        StartCoroutine(AddScoreCoroutine(score));
+    }
+
+    private IEnumerator AddScoreCoroutine(float score)
     {
         float iterationLength = UpdateSpeed / numberOfIterations;
         float iterationScore = (2 * score) / (numberOfIterations * (numberOfIterations + 1));
