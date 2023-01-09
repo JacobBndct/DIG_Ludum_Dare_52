@@ -17,8 +17,6 @@ public class LittleGreenDude : MonoBehaviour
 
     public int attackDmg;
 
-    public int spawnChance = 8;
-
     public GameObject chili;
 
     Animator an;
@@ -114,16 +112,16 @@ public class LittleGreenDude : MonoBehaviour
 
 
         //determine whether to spawn chili
-        int randomValue = UnityEngine.Random.Range(1, spawnChance);
+        int randomValue = UnityEngine.Random.Range(1, 8);
 
         Debug.Log("Random Value: " + randomValue);
 
-        if (randomValue == spawnChance - 1) ;
+        if (randomValue == 7)
         {
             Instantiate(chili, transform.position, transform.rotation);
         }
 
-
+        randomValue = 0;
 
         Instantiate(explosion, transform.position, transform.rotation);
 
