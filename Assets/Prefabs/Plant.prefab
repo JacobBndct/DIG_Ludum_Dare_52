@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 701136597110308345}
   - component: {fileID: 701136597110308346}
   - component: {fileID: 701136597110308344}
+  - component: {fileID: 203874909707464425}
   m_Layer: 0
   m_Name: Plant
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701136597110308347}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.29, y: 1.58, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -97,17 +98,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf15c9f3b84472ea1d4570ee5e5b3e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle: {fileID: 5772310615224820477, guid: 6af849c219e0b944fa1ac874a2eee8c8, type: 3}
   spriteRenderer: {fileID: 701136597110308346}
   stages:
   - stageDuration: 4
     specialPointAmount: 0
     sprite: {fileID: 21300000, guid: 1cd276d6eef96ac468a358906d867f2b, type: 3}
   - stageDuration: 3
-    specialPointAmount: 0
+    specialPointAmount: 0.1
     sprite: {fileID: 21300000, guid: 2e3c4984e6533534c83336edb04c07b3, type: 3}
   - stageDuration: 7
-    specialPointAmount: 0
+    specialPointAmount: 0.15
     sprite: {fileID: 21300000, guid: 5e95fbc6b5f5f0847a9f5f29e0258708, type: 3}
-  - stageDuration: 10
-    specialPointAmount: 0
+  - stageDuration: 1e+18
+    specialPointAmount: 0.3
     sprite: {fileID: 21300000, guid: a6824f689b663304cad77c4a08dd578c, type: 3}
+--- !u!61 &203874909707464425
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701136597110308347}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.005, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.14, y: 0.14}
+  m_EdgeRadius: 0

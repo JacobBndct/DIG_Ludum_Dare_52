@@ -5,21 +5,25 @@ using UnityEngine;
 
 public class Plant : MonoBehaviour
 {
+    public GameObject particle;
+
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     [Serializable]
     struct StageData
     {
         public float stageDuration;
-        public int specialPointAmount;
+        public float specialPointAmount;
         public Sprite sprite;
+
+        
     }
 
     [SerializeField] private List<StageData> stages;
     public int CurrentStageIndex { get; private set; }
     
     // THIS IS THE AMOUNT OF THE POINTS THAT YOU GET FROM THE CURRENT STAGE :)
-    public int SpecialPointAmount => stages[CurrentStageIndex].specialPointAmount;
+    public float SpecialPointAmount => stages[CurrentStageIndex].specialPointAmount;
 
     private void Awake()
     {
@@ -31,7 +35,9 @@ public class Plant : MonoBehaviour
     {
         var stage = stages[stageIndex];
         spriteRenderer.sprite = stage.sprite;
-        
+
+        Instantiate(particle, transform.position, transform.rotation);
+
         CurrentStageIndex = stageIndex;
         StartCoroutine(WaitStageDurationThenAdvance());
     }
@@ -42,6 +48,12 @@ public class Plant : MonoBehaviour
         CurrentStageIndex++;
         
         if (CurrentStageIndex < stages.Count)
+        {
             SetStage(CurrentStageIndex);
+        } else
+        {
+            //StopCoroutine(WaitStageDurationThenAdvance());
+        }
+            
     }
 }

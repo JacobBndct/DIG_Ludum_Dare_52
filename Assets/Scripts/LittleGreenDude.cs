@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LittleGreenDude : MonoBehaviour
@@ -9,12 +8,21 @@ public class LittleGreenDude : MonoBehaviour
     Rigidbody2D rb;
     public GameObject playerReference;
     [SerializeField] private float speed;
-    [SerializeField] private float attackDmg;
+
+    public GameObject explosion;
 
     public bool canMove;
 
+    public int pointWorth;
+
+    public int attackDmg;
+
+    public GameObject chili;
+
     Animator an;
-    
+
+    AudioSource audioSource;
+    public AudioClip hitClip;
 
     void Awake()
     {
@@ -26,7 +34,7 @@ public class LittleGreenDude : MonoBehaviour
 
     private void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
         StartCoroutine(countDown());
     }
 
@@ -35,7 +43,9 @@ public class LittleGreenDude : MonoBehaviour
         float seconds;
 
         seconds = UnityEngine.Random.Range(3, 7);
+
         
+
         print("Start waiting for: " + seconds);
         yield return new WaitForSeconds(seconds);
         canMove = !canMove;
@@ -50,44 +60,71 @@ public class LittleGreenDude : MonoBehaviour
         StartCoroutine(countDown());
     }
 
-    private void Update() {
-        transform.rotation = Quaternion.Euler(0, 0, (Mathf.Rad2Deg * Mathf.Atan2(playerReference.transform.position.y - transform.position.y, playerReference.transform.position.x - transform.position.x)));   
-    }
-
-    private void FixedUpdate() {
-        rb.AddForce(transform.right * speed);
-    }
-
-    // void Update()
-    // {
-    //     if (canMove)
-    //     {
-    //         var step = speed * Time.deltaTime; // calculate distance to move
-    //         transform.position = Vector2.MoveTowards(transform.position, playerReference.transform.position, step);
-    //     }
-    // }
-
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("Pellet")) {
-            Debug.Log("pellet hit");
-            Destroy(transform.parent.gameObject);
-            Destroy(other.gameObject);
+    void Update()
+    {
+        if (canMove && playerReference != null)
+        {
+            var step = speed * Time.deltaTime; // calculate distance to move
+            transform.position = Vector2.MoveTowards(transform.position, playerReference.transform.position, step);
         }
-        
     }
 
-    private IEnumerator OnCollisionStay2D(Collision2D other) {
-        if (other.gameObject.CompareTag("Player")) {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Pellet")
+        {
+            Destroy(collision.gameObject);
+            Death();
+        }
+    }
+
+    /*
+    private IEnumerator OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
             yield return new WaitForSeconds(2f);
+            Debug.Log("player in range");
+            other.gameObject.GetComponent<PlayerStats>().Damage(attackDmg);
+        }
+    }
+    */
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
             Debug.Log("player in range");
             other.gameObject.GetComponent<PlayerStats>().Damage(attackDmg);
         }
     }
 
     // Called upon DEATH
-    void Death()
+    public void Death()
     {
         // we can do some more fancy shit here later
+        ScoreManager.Instance.AddScore(pointWorth);
+
+        // destroying alien kills their own audio source. this is terrible but it [kinda] works.
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        AudioSource playerAudio = player.GetComponent<AudioSource>();
+
+        playerAudio.PlayOneShot(hitClip);
+
+
+        //determine whether to spawn chili
+        int randomValue = UnityEngine.Random.Range(1, 8);
+
+        Debug.Log("Random Value: " + randomValue);
+
+        if (randomValue == 7)
+        {
+            Instantiate(chili, transform.position, transform.rotation);
+        }
+
+        randomValue = 0;
+
+        Instantiate(explosion, transform.position, transform.rotation);
+
         Destroy(gameObject);
         Debug.Log("DEATH");
     }

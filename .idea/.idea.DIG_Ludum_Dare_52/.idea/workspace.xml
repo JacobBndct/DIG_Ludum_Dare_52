@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ba2e637-04b7-4abd-a5bd-a59eb3156ceb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DIG_Ludum_Dare_52/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DIG_Ludum_Dare_52/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AlienTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AlienTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pellet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pellet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -71,7 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1673187652521</updated>
       <workItem from="1673187667756" duration="7668000" />
-      <workItem from="1673202894916" duration="7338000" />
+      <workItem from="1673275687983" duration="724000" />
     </task>
     <servers />
   </component>

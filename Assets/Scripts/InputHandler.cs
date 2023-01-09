@@ -2,13 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class InputHandler : MonoBehaviour
 {
     public Vector2 MoveInput { get; private set; } = Vector2.zero;
     public Vector2 LookInput { get; private set; } = Vector2.zero;
+
+    public Vector2 MouseLookInput { get; private set; } = Vector2.zero;
+
     public InputAction.CallbackContext FireInput { get; private set; }
-    
+
+    public InputAction.CallbackContext PlantInput { get; private set; }
+
+    public InputAction.CallbackContext SpecialInput { get; private set; }
+
     Player_movement _input;
 
     private void OnEnable()
@@ -22,8 +30,17 @@ public class InputHandler : MonoBehaviour
         _input.Player.Look.performed += SetLook;
         _input.Player.Look.canceled += SetLook;
 
+        _input.Player.MouseLook.performed += SetMouseLook;
+        _input.Player.MouseLook.canceled += SetMouseLook;
+
         _input.Player.Fire.started += context => FireInput = context;
         _input.Player.Fire.canceled += context => FireInput = context;
+
+        _input.Player.Plant.started += context => PlantInput = context;
+        _input.Player.Plant.canceled += context => PlantInput = context;
+
+        _input.Player.Special.started += context => SpecialInput = context;
+        _input.Player.Special.canceled += context => SpecialInput = context;
     }
 
     private void OnDisable()
@@ -34,15 +51,29 @@ public class InputHandler : MonoBehaviour
         _input.Player.Look.performed += SetLook;
         _input.Player.Look.canceled += SetLook;
 
+        _input.Player.MouseLook.performed += SetMouseLook;
+        _input.Player.MouseLook.canceled += SetMouseLook;
+
         _input.Player.Fire.started += context => FireInput = context;
         _input.Player.Fire.canceled += context => FireInput = context;
-        
+
+        _input.Player.Plant.started += context => PlantInput = context;
+        _input.Player.Plant.canceled += context => PlantInput = context;
+
+        _input.Player.Special.started += context => SpecialInput = context;
+        _input.Player.Special.canceled += context => SpecialInput = context;
+
         _input.Player.Disable();
     }
 
     private void SetLook(InputAction.CallbackContext context)
     {
         LookInput = context.ReadValue<Vector2>();
+    }
+
+    private void SetMouseLook(InputAction.CallbackContext context)
+    {
+        MouseLookInput = context.ReadValue<Vector2>();
     }
 
     private void SetMove(InputAction.CallbackContext context)
@@ -52,5 +83,15 @@ public class InputHandler : MonoBehaviour
 
     private void SetFire(InputAction.CallbackContext context) {
         
+    }
+
+    private void SetPlant(InputAction.CallbackContext context)
+    {
+       
+    }
+
+    private void SetSpecial(InputAction.CallbackContext context)
+    {
+
     }
 }
