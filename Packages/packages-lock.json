@@ -1,5 +1,6 @@
 {
   "dependencies": {
+<<<<<<< Updated upstream
     "com.unity.2d.animation": {
       "version": "7.0.9",
       "depth": 1,
@@ -91,6 +92,35 @@
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.2.1"
+=======
+    "com.unity.2d.sprite": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    },
+    "com.unity.2d.tilemap": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    },
+    "com.unity.ads": {
+      "version": "3.7.5",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.analytics": {
+      "version": "3.6.12",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+>>>>>>> Stashed changes
       },
       "url": "https://packages.unity.com"
     },
@@ -110,6 +140,7 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+<<<<<<< Updated upstream
     "com.unity.feature.2d": {
       "version": "1.0.0",
       "depth": 0,
@@ -124,6 +155,8 @@
         "com.unity.2d.tilemap.extras": "2.2.3"
       }
     },
+=======
+>>>>>>> Stashed changes
     "com.unity.ide.rider": {
       "version": "3.0.16",
       "depth": 0,
@@ -134,7 +167,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
+<<<<<<< Updated upstream
       "version": "2.0.17",
+=======
+      "version": "2.0.16",
+>>>>>>> Stashed changes
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -149,6 +186,7 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+<<<<<<< Updated upstream
     "com.unity.inputsystem": {
       "version": "1.4.4",
       "depth": 0,
@@ -165,6 +203,8 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+=======
+>>>>>>> Stashed changes
     "com.unity.nuget.newtonsoft-json": {
       "version": "3.0.2",
       "depth": 2,
@@ -172,6 +212,7 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+<<<<<<< Updated upstream
     "com.unity.render-pipelines.core": {
       "version": "12.1.8",
       "depth": 1,
@@ -198,6 +239,31 @@
       "depth": 2,
       "source": "registry",
       "dependencies": {},
+=======
+    "com.unity.purchasing": {
+      "version": "4.5.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.unityanalytics": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.androidjni": "1.0.0",
+        "com.unity.services.core": "1.3.1",
+        "com.unity.services.analytics": "4.0.1"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.services.analytics": {
+      "version": "4.2.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.services.core": "1.4.0"
+      },
+>>>>>>> Stashed changes
       "url": "https://packages.unity.com"
     },
     "com.unity.services.core": {
@@ -211,6 +277,7 @@
       },
       "url": "https://packages.unity.com"
     },
+<<<<<<< Updated upstream
     "com.unity.shadergraph": {
       "version": "12.1.8",
       "depth": 1,
@@ -220,6 +287,8 @@
         "com.unity.searcher": "4.9.1"
       }
     },
+=======
+>>>>>>> Stashed changes
     "com.unity.test-framework": {
       "version": "1.1.31",
       "depth": 0,
@@ -271,6 +340,19 @@
       },
       "url": "https://packages.unity.com"
     },
+<<<<<<< Updated upstream
+=======
+    "com.unity.xr.legacyinputhelpers": {
+      "version": "2.1.10",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.vr": "1.0.0",
+        "com.unity.modules.xr": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+>>>>>>> Stashed changes
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
